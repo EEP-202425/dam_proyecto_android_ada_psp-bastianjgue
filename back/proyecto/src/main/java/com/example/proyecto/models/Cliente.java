@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.proyecto.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +9,6 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "comprador")
 public class Cliente {
 	
 	private String nombre;

@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.proyecto.models;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +11,6 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
 public class Alquiler {
 
 	private String horasAlquiladas;

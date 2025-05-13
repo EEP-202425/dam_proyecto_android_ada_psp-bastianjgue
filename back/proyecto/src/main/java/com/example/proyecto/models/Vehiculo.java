@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.proyecto.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
 public class Vehiculo {
 
 	private String tipo;
