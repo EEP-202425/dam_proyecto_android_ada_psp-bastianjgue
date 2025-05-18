@@ -1,53 +1,77 @@
 package com.example.proyecto.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.JoinColumn;
 
 @Entity
 public class Vehiculo {
+	
+    public enum TipoVehiculo {
+        COCHE("Volkswagen Polo"), BICI("Bianchi Alivio"), SCOOTER("Bongo V70");
+        
+    	private final String marcaVehiculo;
 
-	private String tipo;
-	private String marca;
-	private String color;
+    	TipoVehiculo(String marcaVehiculo) {
+    	    this.marcaVehiculo = marcaVehiculo;
+    	}
+
+    	public String getDescripcion() {
+    	    return marcaVehiculo;
+    	}
+    }
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idVehiculo;
 	
-	public Vehiculo(String tipo, String marca, String color, int idVehiculo) {
+    public enum ColorVehiculo {
+        ROJO, AZUL, NEGRO
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idVehiculo;
+
+    @Enumerated(EnumType.STRING)
+    private TipoVehiculo tipo;
+
+    @Enumerated(EnumType.STRING)
+    private ColorVehiculo color;
+	
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "codigo_seguro") // FK en la tabla Vehiculo
+    private Seguro seguro;
+    
+    public Vehiculo() {
+    	
+    }
+	
+	public Vehiculo(TipoVehiculo tipo, ColorVehiculo color, int idVehiculo) {
 		this.tipo = tipo;
-		this.marca = marca;
 		this.color = color;
 		this.idVehiculo = idVehiculo;
 	}
+	
+    public TipoVehiculo getTipoVehiculo() {
+        return tipo;
+    }
 
-	public String getTipo() {
-		return tipo;
-	}
+    public ColorVehiculo getColorVehiculo() {
+        return color;
+    }
 
-	public void setTipo(String tipo) {
+	public void setTipoVehiculo(TipoVehiculo tipo) {
 		this.tipo = tipo;
 	}
 
-	public String getMarca() {
-		return marca;
-	}
-
-	public void setMarca(String marca) {
-		this.marca = marca;
-	}
-
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
+	public void setColorVehiculo(ColorVehiculo color) {
 		this.color = color;
 	}
-
+	
 	public int getIdVehiculo() {
 		return idVehiculo;
 	}
@@ -55,12 +79,19 @@ public class Vehiculo {
 	public void setIdVehiculo(int idVehiculo) {
 		this.idVehiculo = idVehiculo;
 	}
+	
+	public Seguro getSeguro() {
+		return seguro;
+	}
+
+	public void setSeguro(Seguro seguro) {
+		this.seguro = seguro;
+	}
 
 	@Override
 	public String toString() {
-		return "Vehiculo [tipo=" + tipo + ", marca=" + marca + ", color=" + color + ", idVehiculo=" + idVehiculo + "]";
+		return "Vehiculo [idVehiculo=" + idVehiculo + ", tipo=" + tipo + ", color=" + color + ", seguro=" + seguro
+				+ "]";
 	}
 
-
-	
 }

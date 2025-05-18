@@ -4,9 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 
 @Entity
 public class Cliente {
@@ -18,10 +15,6 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	@OneToOne
-	@JoinColumn
-	private Alquiler idAlquiler;
 	
 	public Cliente() {
 	}
@@ -54,14 +47,6 @@ public class Cliente {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Alquiler getIdAlquiler() {
-		return idAlquiler;
-	}
-
-	public void setIdAlquiler(Alquiler idAlquiler) {
-		this.idAlquiler = idAlquiler;
 	}
 
 	@Override

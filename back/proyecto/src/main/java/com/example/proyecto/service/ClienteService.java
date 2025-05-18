@@ -3,13 +3,14 @@ package com.example.proyecto.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.example.proyecto.models.Cliente;
 import com.example.proyecto.repository.ClienteRepository;
 
-
-
-
+@Service
 public class ClienteService {
+	
 	private final ClienteRepository clienteRepository;
 
 	public ClienteService(ClienteRepository clienteRepository) {

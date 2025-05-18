@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.example.proyecto.models.Alquiler;
 import com.example.proyecto.repository.AlquilerRepository;
 
-
-
 @Service
 public class AlquilerService {
 

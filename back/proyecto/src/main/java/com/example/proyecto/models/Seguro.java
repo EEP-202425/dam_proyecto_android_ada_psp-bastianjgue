@@ -1,62 +1,61 @@
 package com.example.proyecto.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class Seguro {
-	
-	public enum TipoSeguro {
-		COCHE("Seguro caro"), BICI("Seguro medio"), SCOOTER("Seguro barato"); 
-		
-		private String string;
-		
-		 TipoSeguro (String string) {
-			 this.string = string;
-		 }
-		 
-		 public String getString() {
-			 return string;
-		 }
-	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codigoSeguro;
-	private String seguroCoche;
-	private String seguroBici;
-	private String seguroScooter;
 
-	public Seguro(String seguroCoche, String seguroBici, String seguroScooter) {
-		this.seguroCoche = seguroCoche;
-		this.seguroBici = seguroBici;
-		this.seguroScooter = seguroScooter;
-	}
+    public enum TipoSeguro {
+        COCHE("seguro caro"), BICI("seguro medio"), SCOOTER("seguro barato");
+    
+    	private final String descripcion;
 
-	public String getSeguroCoche() {
-		return seguroCoche;
-	}
+    	TipoSeguro(String descripcion) {
+    	    this.descripcion = descripcion;
+    	}
 
-	public void setSeguroCoche(String seguroCoche) {
-		this.seguroCoche = seguroCoche;
-	}
+    	public String getDescripcion() {
+    	    return descripcion;
+    	}
+    }
 
-	public String getSeguroBici() {
-		return seguroBici;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int codigoSeguro;
 
-	public void setSeguroBici(String seguroBici) {
-		this.seguroBici = seguroBici;
-	}
+    private TipoSeguro tipo; 
 
-	public String getSeguroScooter() {
-		return seguroScooter;
-	}
+    public Seguro() {
+    }
 
-	public void setSeguroScooter(String seguroScooter) {
-		this.seguroScooter = seguroScooter;
+    public Seguro(int codigoSeguro, TipoSeguro tipo) {
+        this.codigoSeguro = codigoSeguro;
+        this.tipo = tipo;
+    }
+
+    public int getCodigoSeguro() {
+        return codigoSeguro;
+    }
+
+    public void setCodigoSeguro(int codigoSeguro) {
+        this.codigoSeguro = codigoSeguro;
+    }
+
+    public TipoSeguro getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoSeguro tipo) {
+        this.tipo = tipo;
+    }
+
+	@Override
+	public String toString() {
+		return "Seguro [codigoSeguro=" + codigoSeguro + ", tipo=" + tipo + "]";
 	}
-	
-	
-	
+    
 }
+
