@@ -40,7 +40,6 @@ public class VehiculoController {
 	    vehiculo.setTipoVehiculo(TipoVehiculo.valueOf(dto.getTipo().toUpperCase()));
 	    vehiculo.setColorVehiculo(ColorVehiculo.valueOf(dto.getColor().toUpperCase()));
 
-	    // Asignar seguro automáticamente
 	    Seguro seguro = seguroService.crearSeguroPorTipoVehiculo(vehiculo.getTipoVehiculo());
 	    vehiculo.setSeguro(seguro);
 

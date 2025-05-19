@@ -43,7 +43,7 @@ public class Vehiculo {
     private ColorVehiculo color;
 	
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "codigo_seguro") // FK en la tabla Vehiculo
+    @JoinColumn(name = "codigo_seguro")
     private Seguro seguro;
     
     public Vehiculo() {

@@ -43,23 +43,19 @@ public class AlquilerController {
     
     @PostMapping
     public ResponseEntity<AlquilerDTO> crearAlquiler(@RequestBody AlquilerDTO alquilerDTO) {
-        // Crear cliente a partir del DTO
         Cliente cliente = new Cliente();
         cliente.setNombre(alquilerDTO.getNombreCliente());
         cliente.setApellido(alquilerDTO.getApellidoCliente());
-        cliente = clienteService.guardar(cliente); // ID generado aquí
+        cliente = clienteService.guardar(cliente); 
 
-        // Crear vehículo a partir del DTO
         Vehiculo vehiculo = new Vehiculo();
         vehiculo.setTipoVehiculo(Vehiculo.TipoVehiculo.valueOf(alquilerDTO.getTipoVehiculo()));
         vehiculo.setColorVehiculo(Vehiculo.ColorVehiculo.valueOf(alquilerDTO.getColor()));
-        vehiculo = vehiculoService.guardar(vehiculo); // ID generado aquí
+        vehiculo = vehiculoService.guardar(vehiculo);
 
-        // Crear alquiler con cliente y vehículo ya persistidos
         Alquiler alquiler = AlquilerMapper.toEntity(alquilerDTO, cliente, vehiculo);
         Alquiler nuevo = alquilerService.guardar(alquiler);
 
-        // Devolver DTO con datos de vuelta
         return ResponseEntity.ok(AlquilerMapper.toDTO(nuevo));
     }
 
