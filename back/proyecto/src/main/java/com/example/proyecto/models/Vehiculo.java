@@ -33,8 +33,7 @@ public class Vehiculo {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idVehiculo;
+    private String idVehiculo;
 
     @Enumerated(EnumType.STRING)
     private TipoVehiculo tipo;
@@ -50,7 +49,7 @@ public class Vehiculo {
     	
     }
 	
-	public Vehiculo(TipoVehiculo tipo, ColorVehiculo color, int idVehiculo) {
+	public Vehiculo(TipoVehiculo tipo, ColorVehiculo color, String idVehiculo) {
 		this.tipo = tipo;
 		this.color = color;
 		this.idVehiculo = idVehiculo;
@@ -72,11 +71,11 @@ public class Vehiculo {
 		this.color = color;
 	}
 	
-	public int getIdVehiculo() {
+	public String getIdVehiculo() {
 		return idVehiculo;
 	}
 
-	public void setIdVehiculo(int idVehiculo) {
+	public void setIdVehiculo(String idVehiculo) {
 		this.idVehiculo = idVehiculo;
 	}
 	

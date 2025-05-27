@@ -8,7 +8,11 @@ color.
 
 
 
-
+Nuevo Vínculo del video(RECUPERACIÓN):
+https://eepmad-my.sharepoint.com/personal/bastian-jeria1_eep-igroup_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fbastian
+%2Djeria1%5Feep%2Digroup%5Fcom%2FDocuments%2FGrabando%2D20250527%5F165625%2Ewebm&nav=%7B%
+22defaultNavPanel%22%3A%7B%22pluginName%22%3A%22MediaSettingsLayer%22%7D%7D&referrer=
+StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ecfa10d55%2Dc248%2D4f94%2Db221%2D6b972167d2ef
 
 
 
